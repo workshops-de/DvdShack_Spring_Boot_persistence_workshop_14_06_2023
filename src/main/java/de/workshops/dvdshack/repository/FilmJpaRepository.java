@@ -16,4 +16,6 @@ public interface FilmJpaRepository extends CrudRepository<Film, Integer> {
 
     // Does not work, for this kind of query you need to use @Query or a native query
     //    List<Film> findAllFilmsMatchingExactlyBySpecialFeatures(List<String> specialFeatures);
+
+    List<Film> findByTitleAndReleaseYearOrLength(String title, Year releaseYear, int length);
 }

@@ -10,3 +10,9 @@ spring:
     generate-ddl: false
     hibernate:
       ddl-auto: validate
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc: trace
+
