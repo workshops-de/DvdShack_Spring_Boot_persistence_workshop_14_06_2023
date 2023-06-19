@@ -1,0 +1,57 @@
+package de.workshops.dvdshack.repository;
+
+import com.github.javafaker.Faker;
+import de.workshops.dvdshack.application.ActorService;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@SpringBootTest
+class ActorServiceTest {
+
+    @Autowired
+    private ActorService actorService;
+
+    @MockBean
+    private ActorJpaRepository actorJpaRepository;
+
+    @Test
+    void testFindActorsByLastName() {
+        // Arrange
+        Faker faker = new Faker();
+
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        List<Actor> findActorsByLastNameResult = new ArrayList<>(
+                Collections.singletonList(
+                        Actor.builder()
+                                .firstName(firstName)
+                                .lastName(lastName)
+                                .build()
+                )
+        );
+        Mockito.when(actorJpaRepository.findActorsByLastName(lastName)).thenReturn(findActorsByLastNameResult);
+
+        // Act
+        List<Actor> actorList = actorService.findActorsByLastName(lastName);
+
+        // Assert
+        List<Actor> expectedActorList = new ArrayList<>(
+                Collections.singletonList(
+                        Actor.builder()
+                                .firstName(firstName)
+                                .lastName(lastName)
+                                .build()
+                )
+        );
+        assertEquals(expectedActorList, actorList);
+    }
+}
