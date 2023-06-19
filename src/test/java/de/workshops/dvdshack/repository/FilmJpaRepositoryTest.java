@@ -56,7 +56,6 @@ class FilmJpaRepositoryTest {
                 .isEmpty();
     }
 
-
     @Test
     void shouldFindActorsByFilmAndFirstnameLikeOrLastnameLike() {
         final var films = repository.findByTitleAndReleaseYearOrLength(
