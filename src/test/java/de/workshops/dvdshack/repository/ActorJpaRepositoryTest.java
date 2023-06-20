@@ -79,4 +79,11 @@ class ActorJpaRepositoryTest {
         assertThat(firstNames)
                 .containsExactly("MENA", "KENNETH", "GENE");
     }
+
+    @Test
+    void shouldFindActorsByParameterizedQueryMethod() {
+        final var actors = repository.queryActors("PENELOPE", "GUINESS");
+        assertThat(actors)
+                .hasSize(1);
+    }
  }

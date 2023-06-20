@@ -1,7 +1,8 @@
-package de.workshops.dvdshack.repository;
+package de.workshops.dvdshack.application;
 
 import com.github.javafaker.Faker;
-import de.workshops.dvdshack.application.ActorService;
+import de.workshops.dvdshack.repository.Actor;
+import de.workshops.dvdshack.repository.ActorJpaRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
