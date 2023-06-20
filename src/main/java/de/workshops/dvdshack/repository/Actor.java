@@ -12,6 +12,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Actor extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACTOR_ID_SEQ")
     @SequenceGenerator(name = "ACTOR_ID_SEQ", sequenceName = "actor_actor_id_seq", allocationSize = 1)

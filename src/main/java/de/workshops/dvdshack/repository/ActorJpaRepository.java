@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface ActorJpaRepository extends JpaRepository<Actor, Integer>, JpaSpecificationExecutor<Actor> {
+
     List<Actor> findActorsByLastName(String lastName);
 
     Optional<Actor> findFirstAsOptionalByFirstNameAndLastName(String firstName, String lastName);

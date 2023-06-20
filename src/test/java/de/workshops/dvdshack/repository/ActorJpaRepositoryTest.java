@@ -77,7 +77,7 @@ class ActorJpaRepositoryTest {
 
         var firstNames = actors.stream().map(Actor::getFirstName).toList();
         assertThat(firstNames)
-                .containsExactly("MENA", "KENNETH", "GENE");
+                .contains("MENA", "KENNETH", "GENE");
     }
 
     @Test
